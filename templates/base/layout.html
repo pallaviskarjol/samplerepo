@@ -1,0 +1,31 @@
+<html en>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA_Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+</head>
+
+<body>
+    {%block content%} 
+
+    {%  if messages %}
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+    {% endif %}
+    {% endblock %}
+
+
+
+
+    <script src="{% static 'jquery-3.3.1.slim.min.js' %} "></script>
+    <script src="{% static 'popper.min.js' %}">
+    </script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+</body>
+
+</html>

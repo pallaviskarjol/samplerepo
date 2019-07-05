@@ -1,0 +1,80 @@
+{% extends 'base/layout.html'%} {% load static %} {% block content %}
+
+
+{%  if messages %}
+	{% for message in messages %}
+		{{message}}
+	{% endfor %}
+{% endif %}
+
+<div class="container">
+	<form action="" method="POST" class="mt-4">
+	{% csrf_token %}	{{form.as_table}}
+	<input type="submit" name="submit" class="btn btn-info">
+	</form>
+	<table class="table">
+	<thread class='thread-dark'>
+	<tr>
+		<th scope="col">#</th>
+		<th scope="col">Student name</th>
+		<th scope="col">Branch</th>
+		<th scope="col">Action</th>
+	</tr>
+	</thread>
+	<tbody>
+		{% for r in result %}
+		<tr>
+			<th scope="row">{{r.id}}</th>
+			<td>{{r.name}}</td>
+			<td>{{r.Branch}}</td>
+			<td>
+				<a href="edit_student/{{r.id}}">Edit</a>
+				<a href="delete_student/{{r.id}}">Delete</a>
+
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	
+	</table>
+
+</div>
+{% endblock %}
+
+<!--{% if result %}
+<ul>
+{% for r in result %}
+<ul class="list-unstyled">
+	<li class="h1">{{r.name}}</li>
+	<li>
+		<a href="delete_student/{{r.id}}">Delete</a>
+	</li>
+</ul>
+{% endfor %}
+</ul>
+{% endif %}
+-->
+
+
+
+
+
+<!--form action="" method="POST">
+	{% csrf_token %}	{{form.as_table}}
+	<input type="text" name="" id="" class="form-control" maxlength="10" minlength="2" placeholder="Name" required="True" autofocus="True">
+	<input type="email" name="" id="" class="form-control" maxlength="10" minlength="2" placeholder="Email" required="True" autofocus="True">
+	<input type="number" name="" id="" class="form-control" maxlength="10" minlength="2" placeholder="phone" required="True" autofocus="True">
+</form>
+
+<<img src="{%static 'img/download.jpg'%}">
+<ul>
+    {% for i in 'shravani'%}
+    <li>
+        {{i}}
+    </li>
+    {% endfor %}
+
+</ul>
+<div class="card">
+    hello
+</div>-->
